@@ -1,0 +1,34 @@
+class Example {
+
+	public static void main(String[] args) {
+		ServerSocket ss = new ServerSocket (9999);
+
+
+
+	}
+}
+
+class Server {
+
+
+}
+
+class Work implements Runnable {
+	Socket sc;
+	BufferedReader in;
+	String host();
+
+	Work(Socket sc){
+		this.sc = sc;
+		in = new BufferedReader(
+							new InputStreamReader(
+								sc.getInputStream()));
+	}
+
+	public void run{
+		String host = in.readLine();
+
+		if (host != null){
+		}
+	}
+}

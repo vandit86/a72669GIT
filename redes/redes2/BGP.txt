@@ -1,0 +1,288 @@
+BGP
+Protocolo BGP(Border Gateaway Protocol) 
+O BGP, protocolo de roteamento dinâmico, utilizado para comunicação entre sistemas autónomos (ASs).
+
+O BGP foi projectado para evitar loops de roteamento em topologias arbitrarias, 
+o mais serio problema de seu antecessor, o EGP (Exterior Gateway Protocol). 
+Outro problema que o EGP nao resolve - e é abordado pelo BGP - é o do Roteamento
+ Baseado em Politica (policy-based routing), um roteamento com base em um 
+ conjunto de regras não-técnicas, definidas pelos Sistemas Autónomos.
+
+A função primária de um sistema BGP é trocar informação de acesso à rede,
+inclusive informação sobre a lista das trajetórias dos ASs, com outros sistemas
+BGP. Esta informação pode ser usada para construir um gráfico da conectividade 
+dos ASs a partir do qual loops de roteamento podem ser detectados e reforçadas 
+as políticas de decisão com outros ASs.
+
+O BGP não reconhece os vizinhos automaticamente, é necessária configuração 
+manual da ligação para cada um dos vizinhos.
+
+1) Estado inicial do BGP com vizinhos : IDLE (não se passa nada)
+
+img1.png
+
+BGP está em estado IDLE quando não existe caminho para o vizinho
+
+2) 
+	Para garantia a fiabilidade BGP utiliza TCP.
+Isto significa que BGP peers podem não ter a ligação directa. Mas quando se liga
+ao ISP normalmente se usa a ligação directa. Assim o caminho para vizinho sempre
+existe como ligação directa.    
+BGP-router (também chamado como BGP-speeker) escuta e envia datagramas para 
+a porta 179 do TCP. Quando está a escuta ,esta em estado chamado CONNECT.
+Neste estado BGP fica durante um período muito curto.
+Quando BGP-router enviou os dados e está a espera da resposta do vizinho, ficara 
+em estado ACTIVE.
+
+img2.png
+
+Vamos ver o funcionamento do BGP conexão  entre dois vizinhos :
+
+img3.png
+
+R1 envia TCP SYN para porta 179 do vizinho , inicializando TCP sessão 
+
+
+img4.png
+
+R2 devolve TCP ACK , aceita a ligação , e envia próprio SYN 
+
+img5.png
+
+R1 tambem responde que recebeu SYN do R2
+
+ing6.png
+
+
+Depois disso TCP sessão estará estabelecida.
+BGP-router pode ficar no estado ACTIVE nos seguintes situações :
+	- não existe ip ligação com R2
+	- o serviço BGP não foi inicializado no R2
+	- porta 179 fechada ACL
+
+Aqui vem o exemplo duma TCP sessão não estabelecida. BGP vai ficar 
+no estado ACTIVE, periodicamente passando para estado IDLE e novamente 
+para estado ACTIVE. TCP SYN enviado de R1 para R2:
+
+img7.png
+
+Periodicamente R1 vai tentar estabelecer a TCP sessão.
+
+3)
+	Depois de TCP-sessão estará estabelecida , BGP-routers iniciam a troca 
+de mensagens tipo OPEN.
+OPEN é o primeiro tipo de mensagens BGP. São enviados no inicio da BGP - sessão
+para configurar os paramentos.
+
+img8.png
+
+Aqui é transmitido versão do protocolo, numero AS, Hold Timer e Router ID.
+Para que a sessão BGP poder iniciar os seguintes condições tem ser respeitados:
+ - As versões do protocolo devem ser mesmas.
+ - Os números dos AS tem coincidir com configurações no lado remoto 
+ - Os identificadores Router ID diferentes 
+
+Também em baixo podemos ver sé o router aceita os opções adicionais do BGP
+
+Acabando de receber OPEN do R1, R2 envia o seu OPEN e tambem KEEPALIVE, 
+indicando assim que OPEN do R1 foi recebido, sinal para R1 passar para 
+proximo estado Established. 
+
+Quando houve algum erro durante tentativa de estabelecer BGP-sessão enviado
+mensagem do tipo NOTIFICATION. Aqui vem o exemplo do AS incorrecto:
+
+img9.png
+
+R1 repare que AS recebido no mensagem não coincide com configurado. R1 termina
+a sessão enviando NOTIFICATION messadge. São enviados em caso dos outros problemas
+para terminar sessão .
+
+
+Quando a mensagem enviada router tem estado OPEN SENT
+Quando a mensagem recebida : OPEN CONFIRM  
+Observar estes dois estados é bastante complicado, porque assim BGP não fica muito tempo. 
+
+
+Quando o valor do Hold Time é diferente, vai ser escolhido menor.
+Como Keepalive Timer não é transmitido no OPEN messadge, ele é calculado automaticamente como (Hold Timer / 3). Ou seja Keepalive pode ser diferente nos vizinhos. Isto não é critico, interessa ter Hold Time igual, para que ninguém deles 
+não termina a sessão antes do tempo. 
+
+4) 
+	Depois de todos estes passos feitos os routers passam para estado ESTABLISHED.
+Se chegar ate aqui significa que todos os configurações são consistentes.
+Para cada um podemos ver o Uptime - tempo em que router esta em estado ESTABLISHID.
+
+img10.png
+
+
+5)
+	No inicio (nos primeiros momentos) depois do BGP-sessão ficar estabelecida
+tabela BGP só tem a informação sobre redes locais.
+
+img11.png
+
+Em seguida passa a troca de informações de roteamento.
+Para isso utilizado mensagem UPDATE. Cada um UPADTE massage pode traser a informação sobre um novo caminho , ou informação sobre remoção do grupo dos caminhos antigos. 
+
+img12.png
+
+Em baixo detalhes do mensagem : Atributos do caminho e Informação sobre os caminhos novos.
+
+img13.png
+
+
+O que temos aqui: 
+	R1 transmite informação de roteamento para R2.
+	Em Atributos podemos ver AS_PATH - que significa que a rota vem do AS 100
+	NEXT_HOP nos diz que a informação é para R2.
+	NLRI é a informação das rotas. Neste caso só a "nossa" rede local é indicada 
+	ORIGIN indica como a rota foi obtida. 
+
+O R2 também envia UPDATE massadge com a sua informação.
+Os KEEPALIVE que vem depois é para sinalizar que a informação foi recebida com sucesso. 
+
+Agora temos a informação sobre as redes na tabela BGP 
+
+ing14.png
+
+A informação sobre novas redes tambem aparece na tabela de encaminhamento.
+
+
+UPDATE transmitido em caso de alguma modificação enquanto BGP-sessão estará estabelecida. Não existe nenhum mecanismo de sincronização das tabelas como por exemplo no OSPF. 
+
+6) 
+	Em seguida depois de troca de informação, cada BGP-router vai enviar mensagem do tipo KEEPALIVE, que quer dizer "Ainda estou vivo"). Mensagem enviada periodicamente com tempo do timer Keepalive, que é por defeito 60 seg.
+	Já agora o tempo por defeito HOLD = 3 minutos.
+
+     
+
+CONFIGURASÃO 
+
+Agora vamos considerar um dos BGP router do nosso projeto. Por exemplo vamos ver a tabela de encaminhamento BGP do border router do AS 65300.
+
+img16.png
+
+Como podemos ver o caminho representado não só pelo NEXT HOP mas tambem pelo lista de AS que encontra-se por caminho. Esta lista chamada AS-path.
+Ou seja para chegar por exemplo a rede 10.0.0.0 temos atravessar AS65100 e AS65000.
+
+Como AS-path formado?
+	- enquanto a rota estará dentro AS , AS-path esta vazio. Todos routers percebem que a rota recebida vem do mesma AS 
+	- quando a rota enunciada ao vizinho para fora, router adiciona o numero do AS ao lista AS-path
+	- dentro do AS vizinho a lista não é modifcada e contem só o numero da AS inicial.
+	- AS vizinho anuncia a rota para fora e adiciona o numero AS próprio no inicio da lista. 
+
+AS-path é necessário não só para router saber caminho até destino. AS-path usado para :
+	- evitar os loops do roteamento. Dentro da lista não pode existir numeros AS repetidos.
+	- escolher melhor caminho. Quanto menor AS-path melhor.
+
+Exemplo de configuração do BGP-router. (AS65300)
+
+img17.png
+
+no inicio inicializamos o BGP processo e indicamos numero AS:
+	
+	router bgp 65300
+
+comando neighbor indica com quem é que vamos estabelecer a sessão e o IP endereço para o qual vai ser enviado TCP-SYN e OPEN no inicio : 
+	
+	neighbor 192.168.6.2 remote-as 65100
+
+Depois dos todos os routers vizinhos configurados podemos ver o estado da ligação BGP por exemplo com vizinho AS65100:
+
+img18.png
+
+
+BGP state = Establishid indica que ligação estabelecida entre eles. 
+Para enunciar a nossa gama redes local usamos comando :
+
+	network 10.3.0.0/16
+
+Tabela BGP pode ter vários caminhos alternativos para uma rede, mas tabela encaminhamento escolha só um deles (melhor). BGP não anuncia aos vizinhos só as rotas melhores. Ou seja vizinho nunca recebe duas rotas para uma rede.
+
+Primeiros Critérios de escolha da melhor rota :
+	- max Weight 
+	- max Local Preference
+	- next hop = 0.0.0.0 (rota lacal do router)
+	- AS_PATH mais curto
+	- min Origin Code
+	- min MED
+
+
+Para Administrar as rotas no BGP existem seguintes instrumentos :
+	- AS-Path ACL
+	- Prefix-list
+	- Weight
+	- Local Preference
+	- MED
+
+Estes instrumentos fazem que seja possível troca da informação e iteração entre diferentes ISP ao contrario do qualquer IGP.
+
+
+Os instrumentos que utilizamos para nosso protejo : 
+
+Prefix-list : rede/mascara. Com esta definição estamos a permitir ou proibir as rotas com respectiva rede e mascara. 
+
+	Sintaxe: 
+		ip prefix-list {list-name} [seq {value}] {deny|permit} 
+		{network/length} [ge {value}] [le {value}] 
+
+	Exemplo : 
+		ip prefix-list PAR_IN seq 5 permit 10.5.0.0/16
+
+
+
+Route Map :
+	uma ferramenta flexível, que imponha as políticas de encaminhamento para  diferenciar os anúncios e regras implementadas.
+
+	Sintax : 
+		route-map {map_name} {permit|deny} {seq}
+		[match {expression}]
+		[set {expression}]
+
+	Exemplo :
+		route-map BGP_PAR_IN permit 10
+ 		match ip address prefix-list PAR_IN
+ 		set local-preference 150
+
+As políticas de encaminhamento, filtragem aplicada explicitamente ao vizinho BGP.
+Para um mesmo vizinho pode ser aplicados vários filtros. Por exemplo:
+ ( Exemplo da configuração BGP do nosso trabalho (R2) AS_65500 ) : 
+
+router bgp 65500
+ bgp router-id 192.168.3.2
+ network 10.5.0.0/16
+ neighbor 10.5.1.1 remote-as 65500
+ neighbor 10.5.1.1 next-hop-self
+ neighbor 192.168.3.1 remote-as 65100
+ neighbor 192.168.3.1 prefix-list LAN out
+ neighbor 192.168.3.1 route-map BGP_PAR_IN in
+ neighbor 192.168.4.2 remote-as 65200
+ neighbor 192.168.4.2 prefix-list LAN out
+ neighbor 192.168.9.2 remote-as 65400
+ neighbor 192.168.9.2 prefix-list LAN_PAR out
+!
+router ospf
+ ospf router-id 10.5.1.2
+ redistribute bgp
+ network 10.5.1.0/24 area 0.0.0.0
+ network 10.5.2.0/24 area 0.0.0.0
+ network 10.5.4.0/24 area 0.0.0.0
+ network 192.168.3.0/24 area 0.0.0.0
+ network 192.168.4.0/24 area 0.0.0.0
+ network 192.168.9.0/24 area 0.0.0.0
+!
+ip prefix-list LAN seq 5 permit 10.5.0.0/16
+ip prefix-list LAN_PAR seq 5 permit 10.5.0.0/16
+ip prefix-list LAN_PAR seq 10 permit 10.3.0.0/16
+ip prefix-list PAR_IN seq 5 permit 10.1.0.0/16
+!
+route-map BGP_PAR_IN permit 10
+ match ip address prefix-list PAR_IN
+ set local-preference 150
+!
+route-map BGP_PAR_IN permit 20
+ set local-preference 100
+!
+
+
+
