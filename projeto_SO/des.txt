@@ -1,0 +1,71 @@
+Descrição do cliente :
+	
+	 da para chamar
+	
+	 ./faz
+		entra no modo do utilizador 
+		da para enserir varios comandos
+		comucica com servidor ate inserir commando "exit"
+		sessão cliente	 
+					 
+	./faz [COMANDO] [OPTIONS]
+		abra cominicação com servidor e envia commado 
+		termina logo depois de enviar o commando para servidor
+
+	
+ commandos :
+  "exit"          : para sair do programma
+  "exec"          : executar tarefa 
+  "tempo-inac"    : definir tempo maximo de inactividade na comunicação entre servidor e cliente
+  "tempo-exec"    : definir tempo maximo de execução duma tarefa 
+  "terminar"      : terminar tarefa em execução 
+  "historico"     : mostrar tarefas já terminadas
+  "listar"        : todas as tarefas
+  "listar-exec"   : tarefas em execução
+  "ajuda"         : ajuda 
+
+cliente tem um processo associado que lê do PIPE com nome as respostas do
+servidor. Este processo termina quando PIPE tiver fechado do lado do servidor,
+ou quando utilizador terminar sessão com o comando "exit" ou ^C.
+
+    
+SERVIDOR:
+
+Antes de comesar a receber os commandos do cliente servidor cria duas PIPIES 
+com nome , um para lêr outro para escrever. Ou seja servidor tem que arrancar
+primeiro. No servidor esta definodo tempo maximo de execução e comunicação, 
+que da para alterar pelo atraves dos comandos próprios. 
+
+quando servidor receber commando "exec" é criada uma "tarefa". Os campos da 
+tarefa estão definidos numa structura Task :
+      
+  
+struct Task{
+	pid_t pid;              // PID of task
+	int num;                // number of task
+	char name[BUFF_SIZE];   // name of the task 
+	Status s;               // status of task ()
+	Task *next;             // pointer to the next task in list 
+};
+
+todas as tarefas criadas adicionadas numa lista de tarefas que é uma lista 
+ligada. E atribuido um status IN_EXE (em execução);
+
+tarefa esta a correr num processo diferente, que permite ter varios tarefas
+em execução ao mesmo tempo.
+quando tarefa termina é gerado um sinal de interupção, que é apanhado no 
+processo principal do servidor, e conforme o status da saida atribui um 
+status que indica porque tarefa terminou.
+
+quando tarefa termina normalmente - status DONE 
+quando tarefa termina por max tempo execução - status MAX_EXE
+quando tarefa termina por não comuncar via pipe - status MAX_PIPE
+
+Para prevenir os erros, durante o tratamento do sinal, os outros sinais ficam 
+bloqueados até o processo principal acabar de inserir alterações nos dados. 
+
+ 
+ 
+
+
+

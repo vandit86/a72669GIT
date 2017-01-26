@@ -1,0 +1,1710 @@
+node n1 {
+    type hub
+    network-config {
+	hostname n1
+	!
+    }
+    canvas c1
+    iconcoords {129.0 180.0}
+    labelcoords {129.0 204.0}
+    interface-peer {e0 n6}
+    interface-peer {e1 n7}
+    interface-peer {e2 n26}
+}
+
+node n2 {
+    type lanswitch
+    network-config {
+	hostname n2
+	!
+    }
+    canvas c1
+    iconcoords {170.0 490.0}
+    labelcoords {170.0 514.0}
+    interface-peer {e0 n8}
+    interface-peer {e1 n9}
+    interface-peer {e2 n10}
+    interface-peer {e3 n29}
+    interface-peer {e4 n33}
+}
+
+node n3 {
+    type lanswitch
+    network-config {
+	hostname n3
+	!
+    }
+    canvas c1
+    iconcoords {644.0 497.0}
+    labelcoords {644.0 521.0}
+    interface-peer {e0 n11}
+    interface-peer {e1 n12}
+    interface-peer {e4 n28}
+    interface-peer {e3 n25}
+}
+
+node n4 {
+    type lanswitch
+    network-config {
+	hostname n4
+	!
+    }
+    canvas c1
+    iconcoords {683.0 159.0}
+    labelcoords {683.0 183.0}
+    interface-peer {e0 n16}
+    interface-peer {e1 n17}
+    interface-peer {e2 n18}
+    interface-peer {e3 n19}
+    interface-peer {e4 n24}
+    interface-peer {e5 n5}
+    interface-peer {e6 n27}
+}
+
+node n5 {
+    type lanswitch
+    network-config {
+	hostname n5
+	!
+    }
+    canvas c1
+    iconcoords {686.0 280.0}
+    labelcoords {686.0 304.0}
+    interface-peer {e0 n23}
+    interface-peer {e1 n22}
+    interface-peer {e2 n21}
+    interface-peer {e3 n20}
+    interface-peer {e4 n4}
+}
+
+node n6 {
+    type router
+    model PC
+    network-config {
+	hostname n6
+	!
+	interface eth0
+	 ip address 10.0.0.20/26
+	!
+    }
+    canvas c1
+    iconcoords {47.0 120.0}
+    labelcoords {47.0 152.0}
+    interface-peer {eth0 n1}
+}
+
+node n7 {
+    type router
+    model PC
+    network-config {
+	hostname n7
+	!
+	interface eth0
+	 ip address 10.0.0.21/26
+	!
+    }
+    canvas c1
+    iconcoords {39.0 238.0}
+    labelcoords {39.0 270.0}
+    interface-peer {eth0 n1}
+}
+
+node n8 {
+    type router
+    model PC
+    network-config {
+	hostname n8
+	!
+	interface eth0
+	 ip address 10.0.0.194/26
+	!
+    }
+    canvas c1
+    iconcoords {35.0 526.0}
+    labelcoords {35.0 558.0}
+    interface-peer {eth0 n2}
+}
+
+node n9 {
+    type router
+    model PC
+    network-config {
+	hostname n9
+	!
+	interface eth0
+	 ip address 10.0.0.195/26
+	!
+    }
+    canvas c1
+    iconcoords {116.0 585.0}
+    labelcoords {116.0 617.0}
+    interface-peer {eth0 n2}
+}
+
+node n10 {
+    type router
+    model PC
+    network-config {
+	hostname n10
+	!
+	interface eth0
+	 ip address 10.0.0.196/26
+	!
+    }
+    canvas c1
+    iconcoords {306.0 552.0}
+    labelcoords {306.0 584.0}
+    interface-peer {eth0 n2}
+}
+
+node n11 {
+    type router
+    model PC
+    network-config {
+	hostname n11
+	!
+	interface eth0
+	 ip address 10.0.0.130/26
+	!
+    }
+    canvas c1
+    iconcoords {513.0 533.0}
+    labelcoords {513.0 565.0}
+    interface-peer {eth0 n3}
+}
+
+node n12 {
+    type router
+    model PC
+    network-config {
+	hostname n12
+	!
+	interface eth0
+	 ip address 10.0.0.131/26
+	!
+    }
+    canvas c1
+    iconcoords {595.0 599.0}
+    labelcoords {595.0 631.0}
+    interface-peer {eth0 n3}
+}
+
+node n14 {
+    type router
+    model PC
+    network-config {
+	hostname n14
+	!
+	interface eth0
+	 ip address 10.0.0.133/26
+	!
+    }
+    canvas c1
+    iconcoords {882.0 498.0}
+    labelcoords {882.0 530.0}
+    interface-peer {eth0 n25}
+}
+
+node n15 {
+    type router
+    model PC
+    network-config {
+	hostname n15
+	!
+	interface eth0
+	 ip address 10.0.0.132/26
+	!
+    }
+    canvas c1
+    iconcoords {820.0 592.0}
+    labelcoords {820.0 624.0}
+    interface-peer {eth0 n25}
+}
+
+node n16 {
+    type router
+    model PC
+    network-config {
+	hostname n16
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {703.0 33.0}
+    labelcoords {703.0 65.0}
+    interface-peer {eth0 n4}
+    services {DefaultRoute DHCPClient}
+}
+
+node n17 {
+    type router
+    model PC
+    network-config {
+	hostname n17
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {760.0 51.0}
+    labelcoords {760.0 83.0}
+    interface-peer {eth0 n4}
+    services {DefaultRoute DHCPClient}
+}
+
+node n18 {
+    type router
+    model PC
+    network-config {
+	hostname n18
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {810.0 73.0}
+    labelcoords {810.0 105.0}
+    interface-peer {eth0 n4}
+    services {DefaultRoute DHCPClient}
+}
+
+node n19 {
+    type router
+    model PC
+    network-config {
+	hostname n19
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {855.0 104.0}
+    labelcoords {855.0 136.0}
+    interface-peer {eth0 n4}
+    services {DefaultRoute DHCPClient}
+}
+
+node n20 {
+    type router
+    model PC
+    network-config {
+	hostname n20
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {821.0 407.0}
+    labelcoords {821.0 439.0}
+    interface-peer {eth0 n5}
+    services {DefaultRoute DHCPClient}
+}
+
+node n21 {
+    type router
+    model PC
+    network-config {
+	hostname n21
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {826.0 346.0}
+    labelcoords {826.0 378.0}
+    interface-peer {eth0 n5}
+    services {DefaultRoute DHCPClient}
+}
+
+node n22 {
+    type router
+    model PC
+    network-config {
+	hostname n22
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {833.0 298.0}
+    labelcoords {833.0 330.0}
+    interface-peer {eth0 n5}
+    services {DefaultRoute DHCPClient}
+}
+
+node n23 {
+    type router
+    model PC
+    network-config {
+	hostname n23
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {836.0 253.0}
+    labelcoords {836.0 285.0}
+    interface-peer {eth0 n5}
+    services {DefaultRoute DHCPClient}
+}
+
+node n24 {
+    type router
+    model host
+    network-config {
+	hostname n24
+	!
+	interface eth0
+	 ip address 10.0.0.66/26
+	!
+    }
+    canvas c1
+    iconcoords {831.0 171.0}
+    labelcoords {831.0 203.0}
+    interface-peer {eth0 n4}
+    services {DefaultRoute DHCP}
+    custom-config {
+	custom-config-id service:DHCP
+	custom-command DHCP
+	config {
+	files=('/etc/dhcp/dhcpd.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DHCP:/etc/dhcp/dhcpd.conf
+	custom-command /etc/dhcp/dhcpd.conf
+	config {
+	# auto-generated by DHCP service (utility.py)
+	# NOTE: move these option lines into the desired pool { } block(s) below
+	#option domain-name "test.com";
+	#option domain-name-servers 10.0.0.1;
+	#option routers 10.0.0.1;
+	
+	log-facility local6;
+	
+	default-lease-time 600;
+	max-lease-time 7200;
+	
+	ddns-update-style none;
+	
+	subnet 10.0.0.64 netmask 255.255.255.192 {
+	  pool {
+	    range 10.0.0.71 10.0.0.100;
+	    option routers 10.0.0.65;
+	  }
+	}
+	
+	
+	}
+    }
+}
+
+node n25 {
+    type hub
+    network-config {
+	hostname n25
+	!
+    }
+    canvas c1
+    iconcoords {751.0 507.0}
+    labelcoords {751.0 531.0}
+    interface-peer {e0 n3}
+    interface-peer {e1 n15}
+    interface-peer {e2 n14}
+}
+
+node n26 {
+    type router
+    model router
+    network-config {
+	hostname n26
+	!
+	interface eth4
+	 ip address 192.168.1.1/24
+	!
+	interface eth3
+	 ip address 192.168.0.17/30
+	!
+	interface eth2
+	 ip address 192.168.0.5/30
+	!
+	interface eth0
+	 ip address 10.0.0.1/26
+	!
+	interface eth1
+	 ip address 192.168.0.2/30
+	!
+    }
+    canvas c1
+    iconcoords {248.0 208.0}
+    labelcoords {248.0 240.0}
+    interface-peer {eth0 n1}
+    interface-peer {eth2 n27}
+    interface-peer {eth3 n28}
+    services {zebra vtysh IPForward StaticRoute}
+    custom-config {
+	custom-config-id service:StaticRoute
+	custom-command StaticRoute
+	config {
+	files=('staticroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:StaticRoute:staticroute.sh
+	custom-command staticroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by StaticRoute service (utility.py)
+	#
+	# NOTE: this service must be customized to be of any use
+	#       Below are samples that you can uncomment and edit.
+	#
+	#/sbin/ip route add 10.9.8.0/24 via 10.0.3.1
+	#/sbin/ip route add 10.9.8.0/24 via 192.168.0.1
+	#/sbin/ip route add 10.9.8.0/24 via 192.168.1.1
+	#/sbin/ip route add 10.9.8.0/24 via 192.168.5.1
+	/sbin/ip route add 10.0.0.192/26 via 192.168.0.1
+	/sbin/ip route add 10.0.0.128/26 via 192.168.0.18
+	/sbin/ip route add 10.0.0.64/26 via 192.168.0.6
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.3.1/24
+	!
+	interface eth2
+	  ip address 192.168.1.1/30
+	!
+	interface eth3
+	  ip address 192.168.5.1/30
+	!
+	
+	
+	}
+    }
+    interface-peer {eth1 n29}
+    interface-peer {eth4 n31}
+}
+
+node n27 {
+    type router
+    model router
+    network-config {
+	hostname n27
+	!
+	interface eth3
+	 ip address 192.168.0.22/30
+	!
+	interface eth2
+	 ip address 192.168.0.9/30
+	!
+	interface eth1
+	 ip address 192.168.0.6/30
+	!
+	interface eth0
+	 ip address 10.0.0.65/26
+	!
+    }
+    canvas c1
+    iconcoords {569.0 202.0}
+    labelcoords {569.0 234.0}
+    interface-peer {eth0 n4}
+    interface-peer {eth1 n26}
+    interface-peer {eth3 n29}
+    services {zebra vtysh IPForward StaticRoute}
+    custom-config {
+	custom-config-id service:StaticRoute
+	custom-command StaticRoute
+	config {
+	files=('staticroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:StaticRoute:staticroute.sh
+	custom-command staticroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by StaticRoute service (utility.py)
+	#
+	# NOTE: this service must be customized to be of any use
+	#       Below are samples that you can uncomment and edit.
+	#
+	#/sbin/ip route add 10.9.8.0/24 via 10.0.0.1
+	#/sbin/ip route add 10.9.8.0/24 via 192.168.1.1
+	#/sbin/ip route add 10.9.8.0/24 via 192.168.4.1
+	/sbin/ip route add 10.0.0.0/26 via 192.168.0.5
+	/sbin/ip route add 10.0.0.192/26 via 192.168.0.21
+	/sbin/ip route add 10.0.0.128/26 via 192.168.0.10
+	/sbin/ip route add 192.168.1.0/24 via 192.168.0.5
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.0.1/24
+	!
+	interface eth1
+	  ip address 192.168.1.2/30
+	!
+	interface eth3
+	  ip address 192.168.4.2/30
+	!
+	
+	
+	}
+    }
+    interface-peer {eth2 n28}
+}
+
+node n28 {
+    type router
+    model router
+    network-config {
+	hostname n28
+	!
+	interface eth0
+	 ip address 10.0.0.129/26
+	!
+	interface eth3
+	 ip address 192.168.0.18/30
+	!
+	interface eth1
+	 ip address 192.168.0.10/30
+	!
+	interface eth2
+	 ip address 192.168.0.13/30
+	!
+    }
+    canvas c1
+    iconcoords {568.0 423.0}
+    labelcoords {568.0 455.0}
+    interface-peer {eth0 n3}
+    interface-peer {eth2 n29}
+    interface-peer {eth3 n26}
+    services {zebra vtysh IPForward StaticRoute}
+    custom-config {
+	custom-config-id service:StaticRoute
+	custom-command StaticRoute
+	config {
+	files=('staticroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:StaticRoute:staticroute.sh
+	custom-command staticroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by StaticRoute service (utility.py)
+	#
+	# NOTE: this service must be customized to be of any use
+	#       Below are samples that you can uncomment and edit.
+	#
+	
+	/sbin/ip route add 10.0.0.0/26 via 192.168.0.17
+	/sbin/ip route add 10.0.0.64/26 via 192.168.0.9
+	/sbin/ip route add 10.0.0.192/26 via 192.168.0.14
+	/sbin/ip route add 192.168.1.0/24 via 192.168.0.17
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.2.1/24
+	!
+	interface eth2
+	  ip address 192.168.3.1/30
+	!
+	interface eth3
+	  ip address 192.168.5.2/30
+	!
+	
+	
+	}
+    }
+    interface-peer {eth1 n27}
+}
+
+node n29 {
+    type router
+    model router
+    network-config {
+	hostname n29
+	!
+	interface eth3
+	 ip address 192.168.0.21/30
+	!
+	interface eth2
+	 ip address 192.168.0.14/30
+	!
+	interface eth0
+	 ip address 10.0.0.193/26
+	!
+	interface eth1
+	 ip address 192.168.0.1/30
+	!
+    }
+    canvas c1
+    iconcoords {247.0 422.0}
+    labelcoords {247.0 454.0}
+    interface-peer {eth0 n2}
+    interface-peer {eth2 n28}
+    interface-peer {eth3 n27}
+    services {zebra vtysh IPForward StaticRoute}
+    custom-config {
+	custom-config-id service:StaticRoute
+	custom-command StaticRoute
+	config {
+	files=('staticroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:StaticRoute:staticroute.sh
+	custom-command staticroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by StaticRoute service (utility.py)
+	#
+	# NOTE: this service must be customized to be of any use
+	#       Below are samples that you can uncomment and edit.
+	#
+	#/sbin/ip route add 10.9.8.0/24 via 10.0.4.1
+	#/sbin/ip route add 10.9.8.0/24 via 192.168.0.1
+	#/sbin/ip route add 10.9.8.0/24 via 192.168.3.1
+	#/sbin/ip route add 10.9.8.0/24 via 192.168.4.1
+	/sbin/ip route add 10.0.0.0/26 via 192.168.0.2
+	/sbin/ip route add 10.0.0.64/26 via 192.168.0.22
+	/sbin/ip route add 10.0.0.128/26 via 192.168.0.13
+	/sbin/ip route add 192.168.1.0/24 via 192.168.0.2
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.4.1/24
+	!
+	interface eth2
+	  ip address 192.168.3.2/30
+	!
+	interface eth3
+	  ip address 192.168.4.1/30
+	!
+	
+	}
+    }
+    interface-peer {eth1 n26}
+}
+
+node n13 {
+    type router
+    model host
+    network-config {
+	hostname n13
+	!
+	interface eth0
+	 ip address 192.168.1.10/24
+	!
+    }
+    canvas c1
+    iconcoords {562.0 68.0}
+    labelcoords {562.0 100.0}
+    interface-peer {eth0 n31}
+    custom-config {
+	custom-config-id service:HTTP
+	custom-command HTTP
+	config {
+	dirs=('/etc/boa', '/var/www/html', '/var/log/boa', '/var/run', '/usr/libexec/boa', )
+	files=('/etc/boa/boa.conf', )
+	cmdup=('boa', )
+	cmddown=('boa stop', )
+	}
+    }
+    custom-config {
+	custom-config-id service:HTTP:/etc/boa/boa.conf
+	custom-command /etc/boa/boa.conf
+	config {
+	# Boa v0.94 configuration file
+	# File format has not changed from 0.93
+	# File format has changed little from 0.92
+	# version changes are noted in the comments
+	#
+	# The Boa configuration file is parsed with a custom parser.  If it
+	# reports an error, the line number will be provided; it should be easy
+	# to spot.  The syntax of each of these rules is very simple, and they
+	# can occur in any order.  Where possible these directives mimic those
+	# of NCSA httpd 1.3; I saw no reason to introduce gratuitous
+	# differences.
+	
+	# $Id: boa.conf,v 1.3.2.6 2003/02/02 05:02:22 jnelson Exp $
+	
+	# The "ServerRoot" is not in this configuration file.  It can be
+	# compiled into the server (see defines.h) or specified on the command
+	# line with the -c option, for example:
+	#
+	# boa -c /usr/local/boa
+	
+	
+	# Port: The port Boa runs on.  The default port for http servers is 80.
+	# If it is less than 1024, the server must be started as root.
+	
+	Port 80
+	
+	# Listen: the Internet address to bind(2) to.  If you leave it out,
+	# it takes the behavior before 0.93.17.2, which is to bind to all
+	# addresses (INADDR_ANY).  You only get one "Listen" directive,
+	# if you want service on multiple IP addresses, you have three choices:
+	#    1. Run boa without a "Listen" directive
+	#       a. All addresses are treated the same; makes sense if the addresses
+	#          are localhost, ppp, and eth0.
+	#       b. Use the VirtualHost directive below to point requests to different
+	#          files.  Should be good for a very large number of addresses (web
+	#          hosting clients).
+	#    2. Run one copy of boa per IP address, each has its own configuration
+	#       with a "Listen" directive.  No big deal up to a few tens of addresses.
+	#       Nice separation between clients.
+	# The name you provide gets run through inet_aton(3), so you have to use dotted
+	# quad notation.  This configuration is too important to trust some DNS.
+	
+	#Listen 192.68.0.5
+	
+	#  User: The name or UID the server should run as.
+	# Group: The group name or GID the server should run as.
+	
+	User boa
+	Group boa
+	
+	# ServerAdmin: The email address where server problems should be sent.
+	# Note: this is not currently used, except as an environment variable
+	# for CGIs.
+	
+	ServerAdmin root@localhost
+	
+	# PidFile: where to put the pid of the process.
+	# Comment out to write no pid file.
+	# Note: Because Boa drops privileges at startup, and the
+	# pid file is written by the UID/GID before doing so, Boa
+	# does not attempt removal of the pid file.
+	# PidFile /var/run/boa.pid
+	
+	# ErrorLog: The location of the error log file. If this does not start
+	# with /, it is considered relative to the server root.
+	# Set to /dev/null if you don't want errors logged.
+	# If unset, defaults to /dev/stderr
+	# Please NOTE: Sending the logs to a pipe ('|'), as shown below,
+	#  is somewhat experimental and might fail under heavy load.
+	# "Usual libc implementations of printf will stall the whole
+	#  process if the receiving end of a pipe stops reading."
+	#ErrorLog "|/usr/sbin/cronolog --symlink=/var/log/boa/error_log /var/log/boa/error-%Y%m%d.log"
+	
+	ErrorLog /var/log/boa/error_log
+	
+	# AccessLog: The location of the access log file. If this does not
+	# start with /, it is considered relative to the server root.
+	# Comment out or set to /dev/null (less effective) to disable.
+	# Useful to set to /dev/stdout for use with daemontools.
+	# Access logging.  
+	# Please NOTE: Sending the logs to a pipe ('|'), as shown below,
+	#  is somewhat experimental and might fail under heavy load.
+	# "Usual libc implementations of printf will stall the whole
+	#  process if the receiving end of a pipe stops reading."
+	#AccessLog  "|/usr/sbin/cronolog --symlink=/var/log/boa/access_log /var/log/boa/access-%Y%m%d.log"
+	
+	AccessLog /var/log/boa/access_log
+	
+	# CGILog /var/log/boa/cgi_log
+	# CGILog: The location of the CGI stderr log file. If this does not
+	# start with /, it is considered relative to the server root.
+	# The log file would contain any contents send to /dev/stderr
+	# by the CGI. If this is commented out, it defaults to whatever 
+	# ErrorLog points.  Set to /dev/null to disable CGI stderr logging.
+	# Please NOTE: Sending the logs to a pipe ('|'), as shown below,
+	#  is somewhat experimental and might fail under heavy load.
+	# "Usual libc implementations of printf will stall the whole
+	#  process if the receiving end of a pipe stops reading."
+	#CGILog  "|/usr/sbin/cronolog --symlink=/var/log/boa/cgi_log /var/log/boa/cgi-%Y%m%d.log"
+	
+	# CGIumask 027 (no mask for user, read-only for group, and nothing for user)
+	# CGIumask 027
+	# The CGIumask is set immediately before execution of the CGI.
+	
+	# UseLocaltime: Logical switch.  Uncomment to use localtime 
+	# instead of UTC time
+	#UseLocaltime
+	
+	# VerboseCGILogs: this is just a logical switch.
+	#  It simply notes the start and stop times of cgis in the error log
+	# Comment out to disable.
+	
+	#VerboseCGILogs
+	
+	# ServerName: the name of this server that should be sent back to 
+	# clients if different than that returned by gethostname + gethostbyname 
+	
+	ServerName www.yyy.ttt
+	
+	# VirtualHost: a logical switch.
+	# Comment out to disable.
+	# Given DocumentRoot /var/www, requests on interface 'A' or IP 'IP-A'
+	# become /var/www/IP-A.
+	# Example: http://localhost/ becomes /var/www/127.0.0.1
+	#
+	# Not used until version 0.93.17.2.  This "feature" also breaks commonlog
+	# output rules, it prepends the interface number to each access_log line.
+	# You are expected to fix that problem with a postprocessing script.
+	
+	#VirtualHost 
+	
+	
+	# VHostRoot: the root location for all virtually hosted data
+	# Comment out to disable.
+	# Incompatible with 'Virtualhost' and 'DocumentRoot'!!
+	# Given VHostRoot /var/www, requests to host foo.bar.com,
+	# where foo.bar.com is ip a.b.c.d,
+	# become /var/www/a.b.c.d/foo.bar.com 
+	# Hostnames are "cleaned", and must conform to the rules
+	# specified in rfc1034, which are be summarized here:
+	# 
+	# Hostnames must start with a letter, end with a letter or digit, 
+	# and have as interior characters only letters, digits, and hyphen.
+	# Hostnames must not exceed 63 characters in length.
+	
+	#VHostRoot /var/www
+	
+	# DefaultVHost
+	# Define this in order to have a default hostname when the client does not
+	# specify one, if using VirtualHostName. If not specified, the word
+	# "default" will be used for compatibility with older clients.
+	
+	#DefaultVHost foo.bar.com
+	
+	# DocumentRoot: The root directory of the HTML documents.
+	# Comment out to disable server non user files.
+	
+	DocumentRoot /var/www/boa/html
+	
+	# UserDir: The name of the directory which is appended onto a user's home
+	# directory if a ~user request is received.
+	
+	UserDir public_html
+	
+	# DirectoryIndex: Name of the file to use as a pre-written HTML
+	# directory index.  Please MAKE AND USE THESE FILES.  On the
+	# fly creation of directory indexes can be _slow_.
+	# Comment out to always use DirectoryMaker
+	
+	DirectoryIndex index.html
+	
+	# DirectoryMaker: Name of program used to create a directory listing.
+	# Comment out to disable directory listings.  If both this and
+	# DirectoryIndex are commented out, accessing a directory will give
+	# an error (though accessing files in the directory are still ok).
+	
+	DirectoryMaker /usr/libexec/boa/boa_indexer
+	
+	# DirectoryCache: If DirectoryIndex doesn't exist, and DirectoryMaker
+	# has been commented out, the the on-the-fly indexing of Boa can be used
+	# to generate indexes of directories. Be warned that the output is 
+	# extremely minimal and can cause delays when slow disks are used.
+	# Note: The DirectoryCache must be writable by the same user/group that 
+	# Boa runs as.
+	
+	# DirectoryCache /var/spool/boa/dircache
+	
+	# KeepAliveMax: Number of KeepAlive requests to allow per connection
+	# Comment out, or set to 0 to disable keepalive processing
+	
+	KeepAliveMax 1000
+	
+	# KeepAliveTimeout: seconds to wait before keepalive connection times out
+	
+	KeepAliveTimeout 10
+	
+	# MimeTypes: This is the file that is used to generate mime type pairs
+	# and Content-Type fields for boa.
+	# Set to /dev/null if you do not want to load a mime types file.
+	# Do *not* comment out (better use AddType!)
+	
+	MimeTypes /etc/mime.types
+	
+	# DefaultType: MIME type used if the file extension is unknown, or there
+	# is no file extension.
+	
+	DefaultType text/plain
+	
+	# CGIPath: The value of the $PATH environment variable given to CGI progs.
+	
+	CGIPath /bin:/usr/bin:/usr/local/bin
+	
+	# SinglePostLimit: The maximum allowable number of bytes in 
+	# a single POST.  Default is normally 1MB.
+	
+	# AddType: adds types without editing mime.types
+	# Example: AddType type extension [extension ...]
+	
+	# Uncomment the next line if you want .cgi files to execute from anywhere
+	AddType application/x-httpd-cgi cgi
+	AddType application/x-httpd-cgi pl
+	
+	# Redirect, Alias, and ScriptAlias all have the same semantics -- they
+	# match the beginning of a request and take appropriate action.  Use
+	# Redirect for other servers, Alias for the same server, and ScriptAlias
+	# to enable directories for script execution.
+	
+	# Redirect allows you to tell clients about documents which used to exist in
+	# your server's namespace, but do not anymore. This allows you to tell the
+	# clients where to look for the relocated document.
+	# Example: Redirect /bar http://elsewhere/feh/bar
+	
+	# Aliases: Aliases one path to another.
+	# Example: Alias /path1/bar /path2/foo
+	
+	# Alias /doc /usr/doc
+	
+	# ScriptAlias: Maps a virtual path to a directory for serving scripts
+	# Example: ScriptAlias /htbin/ /www/htbin/
+	
+	ScriptAlias /cgi-bin/ /var/www/boa/cgi-bin/
+	
+	
+	}
+    }
+    services {DefaultRoute HTTP}
+}
+
+node n30 {
+    type router
+    model host
+    network-config {
+	hostname n30
+	!
+	interface eth0
+	 ip address 192.168.1.11/24
+	!
+    }
+    canvas c1
+    iconcoords {562.0 125.0}
+    labelcoords {562.0 157.0}
+    interface-peer {eth0 n31}
+    custom-config {
+	custom-config-id service:FTP
+	custom-command FTP
+	config {
+	cmdup=('chmod a-w /var/run/vsftpd/empty', 'chmod a-w /var/ftp', 'vsftpd ./vsftpd.conf', )
+	}
+    }
+    services {DefaultRoute SSH FTP}
+}
+
+node n31 {
+    type lanswitch
+    network-config {
+	hostname n31
+	!
+    }
+    canvas c1
+    iconcoords {247.0 107.0}
+    labelcoords {247.0 131.0}
+    interface-peer {e0 n26}
+    interface-peer {e1 n13}
+    interface-peer {e2 n30}
+}
+
+node n35 {
+    type lanswitch
+    network-config {
+	hostname n35
+	!
+    }
+    canvas c1
+    iconcoords {345.6666666666667 659.0}
+    labelcoords {345.6666666666667 683.0}
+    interface-peer {e0 n34}
+    interface-peer {e1 n33}
+    interface-peer {e2 n36}
+}
+
+node n34 {
+    type router
+    model host
+    network-config {
+	hostname n34
+	!
+	interface eth0
+	 ip address 192.168.1.10/24
+	!
+    }
+    canvas c1
+    iconcoords {429.0 593.0}
+    labelcoords {429.0 625.0}
+    custom-config {
+	custom-config-id service:HTTP
+	custom-command HTTP
+	config {
+	dirs=('/etc/boa', '/var/www/html', '/var/log/boa', '/var/run', '/usr/libexec/boa', )
+	files=('/etc/boa/boa.conf', )
+	cmdup=('boa', )
+	cmddown=('boa stop', )
+	}
+    }
+    custom-config {
+	custom-config-id service:HTTP:/etc/boa/boa.conf
+	custom-command /etc/boa/boa.conf
+	config {
+	# Boa v0.94 configuration file
+	# File format has not changed from 0.93
+	# File format has changed little from 0.92
+	# version changes are noted in the comments
+	#
+	# The Boa configuration file is parsed with a custom parser.  If it
+	# reports an error, the line number will be provided; it should be easy
+	# to spot.  The syntax of each of these rules is very simple, and they
+	# can occur in any order.  Where possible these directives mimic those
+	# of NCSA httpd 1.3; I saw no reason to introduce gratuitous
+	# differences.
+	
+	# $Id: boa.conf,v 1.3.2.6 2003/02/02 05:02:22 jnelson Exp $
+	
+	# The "ServerRoot" is not in this configuration file.  It can be
+	# compiled into the server (see defines.h) or specified on the command
+	# line with the -c option, for example:
+	#
+	# boa -c /usr/local/boa
+	
+	
+	# Port: The port Boa runs on.  The default port for http servers is 80.
+	# If it is less than 1024, the server must be started as root.
+	
+	Port 80
+	
+	# Listen: the Internet address to bind(2) to.  If you leave it out,
+	# it takes the behavior before 0.93.17.2, which is to bind to all
+	# addresses (INADDR_ANY).  You only get one "Listen" directive,
+	# if you want service on multiple IP addresses, you have three choices:
+	#    1. Run boa without a "Listen" directive
+	#       a. All addresses are treated the same; makes sense if the addresses
+	#          are localhost, ppp, and eth0.
+	#       b. Use the VirtualHost directive below to point requests to different
+	#          files.  Should be good for a very large number of addresses (web
+	#          hosting clients).
+	#    2. Run one copy of boa per IP address, each has its own configuration
+	#       with a "Listen" directive.  No big deal up to a few tens of addresses.
+	#       Nice separation between clients.
+	# The name you provide gets run through inet_aton(3), so you have to use dotted
+	# quad notation.  This configuration is too important to trust some DNS.
+	
+	#Listen 192.68.0.5
+	
+	#  User: The name or UID the server should run as.
+	# Group: The group name or GID the server should run as.
+	
+	User boa
+	Group boa
+	
+	# ServerAdmin: The email address where server problems should be sent.
+	# Note: this is not currently used, except as an environment variable
+	# for CGIs.
+	
+	ServerAdmin root@localhost
+	
+	# PidFile: where to put the pid of the process.
+	# Comment out to write no pid file.
+	# Note: Because Boa drops privileges at startup, and the
+	# pid file is written by the UID/GID before doing so, Boa
+	# does not attempt removal of the pid file.
+	# PidFile /var/run/boa.pid
+	
+	# ErrorLog: The location of the error log file. If this does not start
+	# with /, it is considered relative to the server root.
+	# Set to /dev/null if you don't want errors logged.
+	# If unset, defaults to /dev/stderr
+	# Please NOTE: Sending the logs to a pipe ('|'), as shown below,
+	#  is somewhat experimental and might fail under heavy load.
+	# "Usual libc implementations of printf will stall the whole
+	#  process if the receiving end of a pipe stops reading."
+	#ErrorLog "|/usr/sbin/cronolog --symlink=/var/log/boa/error_log /var/log/boa/error-%Y%m%d.log"
+	
+	ErrorLog /var/log/boa/error_log
+	
+	# AccessLog: The location of the access log file. If this does not
+	# start with /, it is considered relative to the server root.
+	# Comment out or set to /dev/null (less effective) to disable.
+	# Useful to set to /dev/stdout for use with daemontools.
+	# Access logging.  
+	# Please NOTE: Sending the logs to a pipe ('|'), as shown below,
+	#  is somewhat experimental and might fail under heavy load.
+	# "Usual libc implementations of printf will stall the whole
+	#  process if the receiving end of a pipe stops reading."
+	#AccessLog  "|/usr/sbin/cronolog --symlink=/var/log/boa/access_log /var/log/boa/access-%Y%m%d.log"
+	
+	AccessLog /var/log/boa/access_log
+	
+	# CGILog /var/log/boa/cgi_log
+	# CGILog: The location of the CGI stderr log file. If this does not
+	# start with /, it is considered relative to the server root.
+	# The log file would contain any contents send to /dev/stderr
+	# by the CGI. If this is commented out, it defaults to whatever 
+	# ErrorLog points.  Set to /dev/null to disable CGI stderr logging.
+	# Please NOTE: Sending the logs to a pipe ('|'), as shown below,
+	#  is somewhat experimental and might fail under heavy load.
+	# "Usual libc implementations of printf will stall the whole
+	#  process if the receiving end of a pipe stops reading."
+	#CGILog  "|/usr/sbin/cronolog --symlink=/var/log/boa/cgi_log /var/log/boa/cgi-%Y%m%d.log"
+	
+	# CGIumask 027 (no mask for user, read-only for group, and nothing for user)
+	# CGIumask 027
+	# The CGIumask is set immediately before execution of the CGI.
+	
+	# UseLocaltime: Logical switch.  Uncomment to use localtime 
+	# instead of UTC time
+	#UseLocaltime
+	
+	# VerboseCGILogs: this is just a logical switch.
+	#  It simply notes the start and stop times of cgis in the error log
+	# Comment out to disable.
+	
+	#VerboseCGILogs
+	
+	# ServerName: the name of this server that should be sent back to 
+	# clients if different than that returned by gethostname + gethostbyname 
+	
+	ServerName www.yyy.ttt
+	
+	# VirtualHost: a logical switch.
+	# Comment out to disable.
+	# Given DocumentRoot /var/www, requests on interface 'A' or IP 'IP-A'
+	# become /var/www/IP-A.
+	# Example: http://localhost/ becomes /var/www/127.0.0.1
+	#
+	# Not used until version 0.93.17.2.  This "feature" also breaks commonlog
+	# output rules, it prepends the interface number to each access_log line.
+	# You are expected to fix that problem with a postprocessing script.
+	
+	#VirtualHost 
+	
+	
+	# VHostRoot: the root location for all virtually hosted data
+	# Comment out to disable.
+	# Incompatible with 'Virtualhost' and 'DocumentRoot'!!
+	# Given VHostRoot /var/www, requests to host foo.bar.com,
+	# where foo.bar.com is ip a.b.c.d,
+	# become /var/www/a.b.c.d/foo.bar.com 
+	# Hostnames are "cleaned", and must conform to the rules
+	# specified in rfc1034, which are be summarized here:
+	# 
+	# Hostnames must start with a letter, end with a letter or digit, 
+	# and have as interior characters only letters, digits, and hyphen.
+	# Hostnames must not exceed 63 characters in length.
+	
+	#VHostRoot /var/www
+	
+	# DefaultVHost
+	# Define this in order to have a default hostname when the client does not
+	# specify one, if using VirtualHostName. If not specified, the word
+	# "default" will be used for compatibility with older clients.
+	
+	#DefaultVHost foo.bar.com
+	
+	# DocumentRoot: The root directory of the HTML documents.
+	# Comment out to disable server non user files.
+	
+	DocumentRoot /var/www/boa/html
+	
+	# UserDir: The name of the directory which is appended onto a user's home
+	# directory if a ~user request is received.
+	
+	UserDir public_html
+	
+	# DirectoryIndex: Name of the file to use as a pre-written HTML
+	# directory index.  Please MAKE AND USE THESE FILES.  On the
+	# fly creation of directory indexes can be _slow_.
+	# Comment out to always use DirectoryMaker
+	
+	DirectoryIndex index.html
+	
+	# DirectoryMaker: Name of program used to create a directory listing.
+	# Comment out to disable directory listings.  If both this and
+	# DirectoryIndex are commented out, accessing a directory will give
+	# an error (though accessing files in the directory are still ok).
+	
+	DirectoryMaker /usr/libexec/boa/boa_indexer
+	
+	# DirectoryCache: If DirectoryIndex doesn't exist, and DirectoryMaker
+	# has been commented out, the the on-the-fly indexing of Boa can be used
+	# to generate indexes of directories. Be warned that the output is 
+	# extremely minimal and can cause delays when slow disks are used.
+	# Note: The DirectoryCache must be writable by the same user/group that 
+	# Boa runs as.
+	
+	# DirectoryCache /var/spool/boa/dircache
+	
+	# KeepAliveMax: Number of KeepAlive requests to allow per connection
+	# Comment out, or set to 0 to disable keepalive processing
+	
+	KeepAliveMax 1000
+	
+	# KeepAliveTimeout: seconds to wait before keepalive connection times out
+	
+	KeepAliveTimeout 10
+	
+	# MimeTypes: This is the file that is used to generate mime type pairs
+	# and Content-Type fields for boa.
+	# Set to /dev/null if you do not want to load a mime types file.
+	# Do *not* comment out (better use AddType!)
+	
+	MimeTypes /etc/mime.types
+	
+	# DefaultType: MIME type used if the file extension is unknown, or there
+	# is no file extension.
+	
+	DefaultType text/plain
+	
+	# CGIPath: The value of the $PATH environment variable given to CGI progs.
+	
+	CGIPath /bin:/usr/bin:/usr/local/bin
+	
+	# SinglePostLimit: The maximum allowable number of bytes in 
+	# a single POST.  Default is normally 1MB.
+	
+	# AddType: adds types without editing mime.types
+	# Example: AddType type extension [extension ...]
+	
+	# Uncomment the next line if you want .cgi files to execute from anywhere
+	AddType application/x-httpd-cgi cgi
+	AddType application/x-httpd-cgi pl
+	
+	# Redirect, Alias, and ScriptAlias all have the same semantics -- they
+	# match the beginning of a request and take appropriate action.  Use
+	# Redirect for other servers, Alias for the same server, and ScriptAlias
+	# to enable directories for script execution.
+	
+	# Redirect allows you to tell clients about documents which used to exist in
+	# your server's namespace, but do not anymore. This allows you to tell the
+	# clients where to look for the relocated document.
+	# Example: Redirect /bar http://elsewhere/feh/bar
+	
+	# Aliases: Aliases one path to another.
+	# Example: Alias /path1/bar /path2/foo
+	
+	# Alias /doc /usr/doc
+	
+	# ScriptAlias: Maps a virtual path to a directory for serving scripts
+	# Example: ScriptAlias /htbin/ /www/htbin/
+	
+	ScriptAlias /cgi-bin/ /var/www/boa/cgi-bin/
+	
+	
+	}
+    }
+    services {DefaultRoute HTTP}
+    interface-peer {eth0 n35}
+}
+
+node n33 {
+    type router
+    model router
+    network-config {
+	hostname n33
+	!
+	interface eth0
+	 ip address 10.0.0.194/26
+	!
+	interface eth1
+	 ip address 192.168.1.1/24
+	!
+    }
+    canvas c1
+    iconcoords {186.0 666.0}
+    labelcoords {186.0 698.0}
+    interface-peer {eth0 n2}
+    interface-peer {eth1 n35}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.193
+	
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:Firewall
+	custom-command Firewall
+	config {
+	files=('firewall.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:Firewall:firewall.sh
+	custom-command firewall.sh
+	config {
+	/sbin/iptables -P FORWARD ACCEPT
+	/sbin/iptables --table nat -A POSTROUTING -o eth0 -j MASQUERADE
+	/sbin/iptables --table nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to 192.168.1.10:80 
+	
+	
+	}
+    }
+    services {vtysh IPForward DefaultRoute Firewall}
+}
+
+node n36 {
+    type router
+    model PC
+    network-config {
+	hostname n36
+	!
+	interface eth0
+	 ip address 192.168.1.20/24
+	!
+    }
+    canvas c1
+    iconcoords {474.0 706.0}
+    labelcoords {474.0 738.0}
+    interface-peer {eth0 n35}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 192.168.1.1
+	
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+link l1 {
+    nodes {n16 n4}
+    bandwidth 0
+}
+
+link l2 {
+    nodes {n17 n4}
+    bandwidth 0
+}
+
+link l3 {
+    nodes {n18 n4}
+    bandwidth 0
+}
+
+link l4 {
+    nodes {n19 n4}
+    bandwidth 0
+}
+
+link l5 {
+    nodes {n24 n4}
+    bandwidth 0
+}
+
+link l6 {
+    nodes {n23 n5}
+    bandwidth 0
+}
+
+link l7 {
+    nodes {n22 n5}
+    bandwidth 0
+}
+
+link l8 {
+    nodes {n21 n5}
+    bandwidth 0
+}
+
+link l9 {
+    nodes {n20 n5}
+    bandwidth 0
+}
+
+link l10 {
+    nodes {n11 n3}
+    bandwidth 0
+}
+
+link l11 {
+    nodes {n12 n3}
+    bandwidth 0
+}
+
+link l13 {
+    nodes {n6 n1}
+    bandwidth 0
+}
+
+link l14 {
+    nodes {n7 n1}
+    bandwidth 0
+}
+
+link l15 {
+    nodes {n8 n2}
+    bandwidth 0
+}
+
+link l16 {
+    nodes {n9 n2}
+    bandwidth 0
+}
+
+link l17 {
+    nodes {n10 n2}
+    bandwidth 0
+}
+
+link l21 {
+    nodes {n5 n4}
+    bandwidth 0
+}
+
+link l22 {
+    nodes {n1 n26}
+    bandwidth 0
+}
+
+link l23 {
+    nodes {n2 n29}
+    bandwidth 0
+}
+
+link l24 {
+    nodes {n3 n28}
+    bandwidth 0
+}
+
+link l25 {
+    nodes {n4 n27}
+    bandwidth 0
+}
+
+link l27 {
+    nodes {n26 n27}
+    bandwidth 0
+}
+
+link l29 {
+    nodes {n28 n29}
+    bandwidth 0
+}
+
+link l30 {
+    nodes {n29 n27}
+    bandwidth 0
+}
+
+link l31 {
+    nodes {n26 n28}
+    bandwidth 0
+}
+
+link l18 {
+    nodes {n3 n25}
+    bandwidth 0
+}
+
+link l19 {
+    nodes {n15 n25}
+    bandwidth 0
+}
+
+link l20 {
+    nodes {n14 n25}
+    bandwidth 0
+}
+
+link l26 {
+    nodes {n29 n26}
+    bandwidth 0
+}
+
+link l28 {
+    nodes {n28 n27}
+    bandwidth 0
+}
+
+link l12 {
+    nodes {n26 n31}
+    bandwidth 0
+}
+
+link l32 {
+    nodes {n13 n31}
+    bandwidth 0
+}
+
+link l33 {
+    nodes {n31 n30}
+    bandwidth 0
+}
+
+link l35 {
+    nodes {n35 n34}
+    bandwidth 0
+}
+
+link l34 {
+    nodes {n2 n33}
+    bandwidth 0
+}
+
+link l36 {
+    nodes {n33 n35}
+    bandwidth 0
+}
+
+link l37 {
+    nodes {n35 n36}
+    bandwidth 0
+}
+
+annotation a1 {
+    iconcoords {19.0 24.0}
+    type text
+    label {Topologia ESTATIC+ HTTP+FTP+NAT}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize 12
+    effects {bold}
+    canvas c1
+}
+
+annotation a2 {
+    type text
+    iconcoords {519.0 172.0}
+    label {}
+    canvas c1
+}
+
+annotation a3 {
+    iconcoords {6.0 50.0 191.0 317.0}
+    type rectangle
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #C0C0FF
+    width 0
+    border #b80000
+    rad 25
+    canvas c1
+}
+
+annotation a4 {
+    iconcoords {6.0 470.0 351.0 634.0}
+    type rectangle
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #C0C0FF
+    width 0
+    border #008b00
+    rad 25
+    canvas c1
+}
+
+annotation a5 {
+    iconcoords {632.0 12.0 921.0 436.0}
+    type rectangle
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #C0C0FF
+    width 0
+    border black
+    rad 25
+    canvas c1
+}
+
+annotation a6 {
+    iconcoords {472.0 482.0 922.0 635.0}
+    type rectangle
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #C0C0FF
+    width 0
+    border black
+    rad 25
+    canvas c1
+}
+
+canvas c1 {
+    name {Canvas1}
+}
+
+option global {
+    interface_names yes
+    ip_addresses yes
+    ipv6_addresses yes
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+}
+
