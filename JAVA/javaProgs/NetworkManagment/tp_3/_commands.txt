@@ -1,0 +1,36 @@
+// start snmp agent service 
+systemctl start snmpd.service
+
+
+// compilar
+javac -cp .:snmp4j-2.5.3.jar SNMPManager.java   
+
+// correr 
+java -cp .:snmp4j-2.5.3.jar SNMPManager
+
+// criar compile.sh   PARA COMPILAR PROJETO
+// -d bin - pasta => onde por classes compilados 
+// - sourcepath src => pasta com java
+// -cp "lib/" => pasta com bibliotecas .JAR externas 
+// /src/com/test/Start.java => começar compilar daqui
+
+#!/usr/bin/env/ bash 
+javac -d bin -sourcepath src -cp "lib/" src/com/test/Start.java
+
+
+// criar start.sh PARA CORRER PROJETO
+
+#!/usr/bin/env/ bash 
+java -cp "bin:lib/*" com.test.Start
+
+
+// semple example 
+snmpget -v 2c -c public 127.0.0.1 .1.3.6.1.2.1.1.1.0
+
+// snmpget example to Unpredictable mib 
+ snmpget -v2c -c public -m "./UNPREDICTABLE-GR-MIB.txt" 127.0.0.1 .1.3.6.1.4.1.3333.1.1.4.0 
+
+// set example to Unpredictabel mib 
+snmpset -v2c -c public -m "./UNPREDICTABLE-GR-MIB.txt" 127.0.0.1 .1.3.6.1.4.1.3333.1.1.4.0  s "cmd"
+
+

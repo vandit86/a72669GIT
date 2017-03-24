@@ -1,0 +1,6 @@
+UDP-PORT 161
+COMMUNITY-STRING public
+REFRESH-RATE 1
+TABLE-SIZE 256
+NUMBER-SIZE 8
+FIRST-SEED /home/vad/Documentos/GR/tp_3/conf/first-map-table.txt
